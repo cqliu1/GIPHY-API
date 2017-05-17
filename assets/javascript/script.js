@@ -50,8 +50,12 @@ $(document).ready(function() {
 				var data = response.data;
 
 				for( var i = 0; i < data.length; i++) {
-					var gifDiv = $("<div>").addClass("gif-wrapper");
-					var rating = $("<p>").text("Rating: " + data[i].rating);
+					var gifDiv = $("<div>");
+					gifDiv.addClass("gif-wrapper");
+
+					var rating = $("<p>");
+					rating.text("Rating: " + data[i].rating);
+					
 					var gif = $("<img>").addClass("gif");
 					gif.attr("src",data[i].images.fixed_height_still.url);
 					gif.attr("data-state","still")
@@ -62,9 +66,11 @@ $(document).ready(function() {
 						var state = $(this).attr("data-state");
 
 						if(state === "still") {
+							// change to animated gif
 							$(this).attr("data-state","animate");
 							$(this).attr("src",$(this).attr("data-animate"));
 						} else if(state === "animate") {
+							// change to still gif
 							$(this).attr("data-state","still");
 							$(this).attr("src",$(this).attr("data-still"));
 						}
@@ -100,8 +106,6 @@ $(document).ready(function() {
 			addButton(topic);
 		}
 	});
-
-	
 
 	// add all topic buttons when page loads
 	addAllTopics();
