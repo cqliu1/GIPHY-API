@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 	// function
 	var addButton = function(topic) {
-		var button = $("<button>").addClass("topic").attr("data-topic",topic).text(topic);
+		var button = $("<button>").addClass("topic btn btn-primary").attr("data-topic",topic).text(topic);
 
 		button.on("click", function() {
 			var term = $(this).attr("data-topic");
